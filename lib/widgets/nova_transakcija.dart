@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 class NovaTransakcija extends StatefulWidget {
   final Function dodajTx;
 
+  // ignore: prefer_const_constructors_in_immutables
   NovaTransakcija(this.dodajTx);
 
   @override

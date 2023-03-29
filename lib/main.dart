@@ -1,8 +1,7 @@
-
-// ignore_for_file: use_key_in_widget_constructors, duplicate_ignore
+// ignore_for_file: use_key_in_widget_constructors, duplicate_ignore, deprecated_member_use, prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:flutter_app_troskovi/widgets/nova_transakcija.dart';  
+import 'package:flutter_app_troskovi/widgets/nova_transakcija.dart';
 import 'package:flutter_app_troskovi/models/transakcije.dart';
 import 'package:flutter_app_troskovi/widgets/transakcija_lista.dart';
 
@@ -16,6 +15,16 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.purple,
         accentColor: Colors.amber,
+        fontFamily: 'OpenSans',
+        textTheme: ThemeData.light().textTheme.copyWith(
+            headline6: TextStyle(fontFamily: 'OpenSans', fontSize: 18)),
+        appBarTheme: AppBarTheme(
+          titleTextStyle: TextStyle(
+            fontFamily: 'OpenSans',
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ),
       title: 'App troškovi',
       home: MyHomePage(),
@@ -65,12 +74,11 @@ class _MyHomePageState extends State<MyHomePage> {
         context: kntkst,
         builder: (_) {
           return GestureDetector(
-            onTap:() {
-              
-            },
+            onTap: () {},
+            // ignore: sort_child_properties_last
             child: NovaTransakcija(_dodajNovuTransakciju),
             behavior: HitTestBehavior.opaque,
-            );
+          );
         });
   }
 
@@ -78,13 +86,15 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        
-        title: const Text('Aplikacija za troskove'),
+        title: const Text(
+          'Aplikacija za troskove',
+          style: TextStyle(fontFamily: 'OpenSans'),
+        ),
         // ignore: prefer_const_literals_to_create_immutables
         actions: <Widget>[
           IconButton(
             icon: const Icon(Icons.add),
-            onPressed: ()=> _pocetakNoveTransakcije(context),
+            onPressed: () => _pocetakNoveTransakcije(context),
           ),
         ],
       ),
@@ -110,7 +120,7 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
-        onPressed: ()=> _pocetakNoveTransakcije(context),
+        onPressed: () => _pocetakNoveTransakcije(context),
       ),
     );
   }

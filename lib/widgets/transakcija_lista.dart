@@ -1,4 +1,5 @@
-// ignore_for_file: prefer_interpolation_to_compose_strings, sized_box_for_whitespace
+// ignore_for_file: prefer_interpolation_to_compose_strings, sized_box_for_whitespace, deprecated_member_use
+// ignore: unused_import
 import 'package:flutter_app_troskovi/main.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -47,10 +48,7 @@ class TransakcijeLista extends StatelessWidget {
                     children: <Widget>[
                       Text(
                         transakcije[index].naslov,
-                        style: const TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                        ),
+                        style: Theme.of(context).textTheme. headline6,
                       ),
                       Text(
                         DateFormat('dd-MM-yyyy').format(transakcije[index].vrijeme),
