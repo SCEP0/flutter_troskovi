@@ -41,7 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
 //late String naslovInput;
 
   final List<Transakcije> _korisnickeTransakcije = [
-    Transakcije(
+   /* Transakcije(
       id: '1',
       naslov: 'Patike',
       cijena: 90.99,
@@ -52,7 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
       naslov: 'Rucak',
       cijena: 22.85,
       vrijeme: DateTime.now(),
-    ),
+    ),*/
   ];
 
   void _dodajNovuTransakciju(String txNaslov, double txCijena) {

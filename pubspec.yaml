@@ -32,3 +32,5 @@ fonts:
       - asset: assets/fonts/Quicksand-Medium.ttf
       - asset: assets/fonts/Quicksand-Light.ttf
         weight: 700
+assets:
+  - assets/images/waiting.png
