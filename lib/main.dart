@@ -1,6 +1,7 @@
 // ignore_for_file: use_key_in_widget_constructors, duplicate_ignore, deprecated_member_use, prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:flutter_app_troskovi/widgets/chart.dart';
 import 'package:flutter_app_troskovi/widgets/nova_transakcija.dart';
 import 'package:flutter_app_troskovi/models/transakcije.dart';
 import 'package:flutter_app_troskovi/widgets/transakcija_lista.dart';
@@ -41,7 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
 //late String naslovInput;
 
   final List<Transakcije> _korisnickeTransakcije = [
-   /* Transakcije(
+    /* Transakcije(
       id: '1',
       naslov: 'Patike',
       cijena: 90.99,
@@ -54,6 +55,16 @@ class _MyHomePageState extends State<MyHomePage> {
       vrijeme: DateTime.now(),
     ),*/
   ];
+
+ List<Transakcije> get _nedavneTransakcije {
+  return _korisnickeTransakcije.where((tx) {
+    return tx.vrijeme.isAfter(
+      DateTime.now().subtract(
+        Duration(days: 7),
+      ),
+    ); 
+  }).toList(); 
+  }
 
   void _dodajNovuTransakciju(String txNaslov, double txCijena) {
     final novaTrans = Transakcije(
@@ -104,15 +115,7 @@ class _MyHomePageState extends State<MyHomePage> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             // ignore: sized_box_for_whitespace
-            Container(
-              width: double.infinity,
-              child: const Card(
-                color: Colors.blue,
-                // ignore: sort_child_properties_last
-                child: Text('Chart'),
-                elevation: 5,
-              ),
-            ),
+            Chart(_nedavneTransakcije),
             TransakcijeLista(_korisnickeTransakcije)
           ],
         ),

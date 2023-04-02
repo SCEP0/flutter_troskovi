@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_interpolation_to_compose_strings, sized_box_for_whitespace, deprecated_member_use
+// ignore_for_file: prefer_interpolation_to_compose_strings, sized_box_for_whitespace, deprecated_member_use, prefer_const_constructors
 // ignore: unused_import
 import 'package:flutter_app_troskovi/main.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +22,13 @@ class TransakcijeLista extends StatelessWidget {
                   'Nema unesenih transakcija',
                   style: Theme.of(context).textTheme.headline6,
                 ),
-                Image.asset('assets/images/waiting.png'),
+                SizedBox(
+                  height: 10,
+                ),
+                Container(
+                  height: 200,
+                  //child: Image(image: AssetImage('assets/images/waiting.png'), fit: BoxFit.cover,)
+                  ),
               ],
             )
           : ListView.builder(
