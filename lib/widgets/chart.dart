@@ -47,8 +47,8 @@ class Chart extends StatelessWidget {
       child: Row(
         children: skupCijenaTransakcija.map((data) {
           return ChartBar(
-  data['dan'] as String,
-  data['cijena'] as double,
+  data['dan'].toString(),
+ double.parse(data['cijena'].toString()),
   ukupnaPotrosnja == 0.0
     ? 0.0
     : (data['cijena'] as double) / ukupnaPotrosnja,
