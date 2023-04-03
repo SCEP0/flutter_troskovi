@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors_in_immutables, use_key_in_widget_constructors, avoid_print, prefer_const_constructors
+// ignore_for_file: prefer_const_constructors_in_immutables, use_key_in_widget_constructors, avoid_print, prefer_const_constructors, unnecessary_cast
 
 import './chart_bar.dart';
 import 'package:intl/intl.dart';
@@ -34,7 +34,7 @@ class Chart extends StatelessWidget {
 
   double get ukupnaPotrosnja {
    return skupCijenaTransakcija.fold(0.0, (sum, item) {
-    return sum + item['cijena'];
+      return sum + (item['cijena'] as double);
    });
   }
 
@@ -47,12 +47,13 @@ class Chart extends StatelessWidget {
       child: Row(
         children: skupCijenaTransakcija.map((data) {
           return ChartBar(
-           data['dan'] ,
-            data['cijena'] ,
-            ukupnaPotrosnja == 0.0
-                ? 0.0
-                : (data['cijena'] as double) / ukupnaPotrosnja,
-          );
+  data['dan'] as String,
+  data['cijena'] as double,
+  ukupnaPotrosnja == 0.0
+    ? 0.0
+    : (data['cijena'] as double) / ukupnaPotrosnja,
+);
+
         }).toList(),
       ),
     );
